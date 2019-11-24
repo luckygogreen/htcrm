@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit pet</title>
+</head>
+<body>
+        <div align="center">
+    <a href="/petlist/">Petlist</a>
+        <form action="/editpet/" method="post">
+            <input type="text" name="editpetid" value="{{ editpet.pet_id }}" style="display: none">
+            <input type="text" name="editpetname" value="{{ editpet.pet_name }}">
+            <select multiple name="allowers">
+                {% for name in owner %}
+                    {% if name in editpet.uname.all %}
+                        <option selected value="{{ name.uid }}">{{ name.uname }}</option>
+                    {% else %}
+                        <option value="{{ name.uid }}">{{ name.uname }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+            <input type="submit" value="Edit Pet" name="editpetsubmit">
+        </form>
+    </div>
+</body>
+</html>

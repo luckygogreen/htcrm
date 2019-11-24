@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tag list</title>
+</head>
+<body>
+<div align="center">
+    <table border="1">
+        <thead>
+            <th>ID</th>
+            <th>Tag</th>
+            <th>Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+
+        </thead>
+        <tbody>
+            {% for tag in taglist %}
+                <tr>
+                    <td>{{ tag.tag_id }}</td>
+                    <td>{{ tag.tag_name }}</td>
+                    <td>{{ tag.userinfo.uname }}</td>
+                    <td><a href="/edittag/?eid={{ tag.tag_id }}">Edit</a></td>
+                    <td><a href="/deltag/?did={{ tag.tag_id }}">Delete</a></td>
+                </tr>
+                {% empty %}
+                <tr><td class="text-center" colspan="5">没有任何数据</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+<a href="/addtags/">Add Tags</a> | <a href="/userlist/">Show user</a>
+</div>
+</body>
+</html>

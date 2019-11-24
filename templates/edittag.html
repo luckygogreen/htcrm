@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Tags</title>
+</head>
+<body>
+    <div align="center">
+        <form action="/edittag/" method="post">
+        <input type="text" id="id" name="tid" value="{{ edit_tag.tag_id }}" style="display: none">
+            <select name="userid">
+                {% for user in username %}
+                    {% if user.uid == edit_tag.userinfo_id %}
+                        <option selected value="{{ user.uid }}">{{ user.uname }}</option>
+                    {% else %}
+                         <option value="{{ user.uid }}">{{ user.uname }}</option>
+                    {% endif %}
+
+                {% endfor %}
+            </select>
+            <input type="text" name="tagname" value="{{ edit_tag.tag_name}}">
+            <input type="submit" name="tagsubmit" value="Edit Tags">
+        </form>
+        <a href="/taglist/">Tags list</a> | <a href="/userlist/">User List</a>
+    </div>
+</body>
+</html>

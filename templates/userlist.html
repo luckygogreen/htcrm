@@ -1,0 +1,44 @@
+<!--第一步，先定义一个HTML文件，把需要重复应用的代码，写入到母版
+//第二步，在需要调用母版也的子页面继承母版页的内容，代码 =code1
+//第三步，需要更改的内容，需要在子页面和母页面同时写入代码 =code2
+//注意事项：extends 'base.html' 必须放在子页面开始，且一定子页面一定要有引号，通常会在Base页面定义一个额外的CSS和JS block方便后期进行修改
+//include 是组建，如果有母版，必须要在母版主体内才生效
+
+-->
+
+{% extends 'base.html' %} <!--code1-->
+    {% block userlist_title %} <!--code2开始-->
+        <title>User LIST</title>
+    {% endblock %}<!--code2结束-->
+    {% block userlist_main %}
+        <div align="center" style="width: 68%;align-content: center">
+<p>User List</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">UID</th>
+                <th scope="col">UNAME</th>
+                <th scope="col">UPASSWORD</th>
+                <th scope="col">Edit</th>
+                <th scope="col">delect</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in userlist %}
+                <tr>
+                    <td scope="row">{{ user.uid }}</td>
+                    <td scope="row">{{ user.uname }}</td>
+                    <td scope="row">{{ user.upassword }}</td>
+                    <td scope="row"><a href="/edituser/?eid={{ user.uid }}">Edit</a></td>
+                    <td scope="row"><a href="/delectuser/?uid={{ user.uid }}">Delect</a></td>
+                </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+    {% endblock %}
+{% block navagation_bar %}
+    {% include 'nav.html' %}
+{% endblock %}

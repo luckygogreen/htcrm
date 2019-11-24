@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Tags</title>
+</head>
+<body>
+    <div align="center">
+        <form action="/addtags/" method="post">
+            <select name="username">
+                {% for user in userinfo %}
+                    <option value="{{ user.uid }}">{{ user.uname }}</option>
+                {% endfor %}
+            </select>
+            <input type="text" name="tagename">
+            <input type="submit" name="tagsubmit" value="Add Tags">
+        </form>
+        <a href="/taglist/">Tags list</a> | <a href="/userlist/">User List</a>
+    </div>
+</body>
+</html>

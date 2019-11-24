@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试专用</title>
+</head>
+<body>
+{{ person1 }}-----{{ person1.name }}-----{{ person1.age }}-----{{ person1.dream }}<br>
+{{ person2 }}-----{{ person2.name }}-----{{ person2.age }}-----{{ person2.dream }}<br>
+<br>---------自定义Filter--------<br>
+{% load firstFilter %}
+{% load secondFilter %}
+{{ person1.name|firstfilter:"就是傻"}}
+{{ person2.name|secondfilter }}
+<br>---------自定义Tag--------<br>
+{% load tag_one %}
+{% tagone 'www' 'eee' 'ttt' %}
+<br>-------自定义inclusion_tag------<br>
+{% load inclusion_tag %}
+{% show_results 10 %}
+{% show_num 9999 %}
+<br>
+-{{ namelist|length }}-<br>
+{% for name1 in namelist %}
+    +{{ name1|length }}+<br>
+    {% for name2 in name1 %}
+        ={{ name2|length }}=<br>
+        {{ forloop.parentloop.counter }}{{ forloop.counter }}{{ name2 }}<br>
+    {% endfor %}
+{% endfor %}
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Pet</title>
+</head>
+<body>
+    <div align="center">
+    <a href="/petlist/">Petlist</a>
+        <form action="/addpet/" method="post">
+            <input type="text" name="addpetname">
+            <select multiple="multiple" name="allowers">
+                {% for name in owner %}
+                    <option value="{{ name.uid }}">{{ name.uname }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Add Pet" name="addpetsubmit">
+        </form>
+    {% include 'nav.html' %}
+    </div>
+</body>
+</html>

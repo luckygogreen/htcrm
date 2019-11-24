@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit User</title>
+</head>
+<body>
+<div align="center">
+    <p>Edit User</p>
+    <form action="/edituser/" method="post" name="eu">
+        <input type="text" name="usid" value="{{ rename_object.uid}}" style="display: none">
+        <input type="text" name="username" value="{{ rename_object.uname }}"><br>
+        <input type="text" name="userpass" value="{{ rename_object.upassword }}"><br>
+        <input type="submit" name="usub" value="Edit user">
+    </form>
+</div>
+</body>
+</html>

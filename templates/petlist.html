@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pet List</title>
+</head>
+<body>
+    <div align="center">
+        <a href="/addpet/">Add Pet</a>
+        <table class="card" border="1">
+            <thead>
+                <th>NO.</th>
+                <th>id</th>
+                <th>pet</th>
+                <th>owner</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </thead>
+            <tbody>
+                {% for pet in petlist %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>
+                            {{ pet.pet_id }}
+                        </td>
+                        <td>
+                            {{ pet.pet_name }}
+                        </td>
+                        <td>
+                            {% for owner in pet.uname.all %}
+                                {{ owner.uname }}
+                            {% endfor %}
+                        </td>
+                        <td>
+                            <a href="/editpet/?editid={{ pet.pet_id }}">Edit</a>
+                        </td>
+                         <td>
+                            <a href="/deletepet/?pid={{ pet.pet_id }}">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+        <a href="/addpet/">Add-Pet</a> | <a href="/adduser/">Add-User</a> | <a href="/addtags/">Add-Tag</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block userlist_title %}{% endblock %}
+    {% load static %}<!-- load static 会到Setting页面里面找到你实际定义的static静态文件夹的名字static888，可以在userlist页查看效果-->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-grid.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-reboot.css' %}" rel="stylesheet">
+    <link href="{% static 'js/bootstrap.bundle.js' %}" rel="stylesheet">
+    <link href="{% static 'js/bootstrap.js' %}" rel="stylesheet">
+    <link href="{% static 'fontawesome5_11_2/css/all.css' %}" rel="stylesheet">
+</head>
+<body>
+{% block userlist_main %}{% endblock %}
+{% block navagation_bar %}{% endblock %}
+</body>
+</html>
